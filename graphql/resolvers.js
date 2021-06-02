@@ -13,5 +13,10 @@ module.exports = {
         oneBeer: async (_, args, { dataSources }) => {
             return await dataSources.beer.getOneBeer(args.id);
         },
+
+        breweries: async (_, __, { dataSources }) => {
+            const data = await dataSources.breweries.getAll();
+            return data;
+        },
     }
 }
