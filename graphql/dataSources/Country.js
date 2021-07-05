@@ -1,17 +1,17 @@
 const { RESTDataSource } = require('apollo-datasource-rest');
 
 
-module.exports = class beerDataSources extends RESTDataSource {
+module.exports = class countryDataSources extends RESTDataSource {
     constructor() {
         super();
-        this.baseURL = 'https://api.openbrewerydb.org/breweries';
+        this.baseURL = 'https://restcountries.eu/rest/v2';
     }
 
     async getAll() {
-        let data = await this.get();
+        let data = await this.get('/all');
 
         console.log('data: ', data);
         return data;
     }
-    
+
 };
